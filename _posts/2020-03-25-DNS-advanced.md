@@ -19,6 +19,7 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 &nbsp;
 # part1: basic concepts - standards
 > RFC1034/1035: internet standards
+
 - Domain Namespace
 
 <p align="center">
