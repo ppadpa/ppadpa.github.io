@@ -22,12 +22,14 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 - Domain Namespace
 
 <p align="center">
-  <img width="460" height="300" src="{{site.baseurl}}/assets/path/1.jpg">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/1.png">
 </p>
 
 - DNS query flow
 
-![NDS_flow]({{site.baseurl}}/assets/path/2.jpg "NDS_flow"){:class="img-responsive"}
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/2.png">
+</p>
 
 - Resource record (RR), many categories
 
