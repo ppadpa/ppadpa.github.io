@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "advnaced DNS learning notes"
+title: "Advnaced DNS learning notes"
 date: 2020-03-25
 ---
 
@@ -8,8 +8,8 @@ date: 2020-03-25
 ### Rfc background
 IETF: Internet Engineering Task Force - a group, want to “make the Internet work better”
 
-|RFC (request for comments) category| |
-| ----------- | ----------- |
+|RFC (request for comments) category ||
+|:-----------:|:-----------:|
 |Standards track | proposed standard, internet standard document |
 |BCP (best current practice) |anything, not standards|
 |Information| not standards||
@@ -48,11 +48,18 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
   -......
   
 - Port 53 is normally used
-![record format]({{site.baseurl}}/assets/path/3.jpg "format"){:class="img-responsive"}
+
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/3.png">
+</p>
 
 &nbsp;
 ### DNS query
-![NDS_query format]({{site.baseurl}}/assets/path/4.jpg "query format details"){:class="img-responsive"}
+
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/4.png">
+</p>
+
 
 &nbsp;
 ### TCP or UDP?
@@ -65,8 +72,6 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 
   - indicate the message was truncated due to its length being longer than the maximum limit.
   
-![NDS_query format]({{site.baseurl}}/assets/path/5.jpg "query format details"){:class="img-responsive"}
-
 &nbsp;
 ### EDNS(0) – extension mechanism for DNS
 
@@ -76,7 +81,11 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 
 - Introduce a new RR type called “OPT RR”
 
-![EDNS]({{site.baseurl}}/assets/path/6.jpg "EDNS0 format"){:class="img-responsive"}
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/5.png">
+</p>
+
+### EDNS(0) detail
 
 - Add to additional information section, for backward capability
 
@@ -92,7 +101,9 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
   
   - If less than 512, treat as 512
 
-![EDNS]({{site.baseurl}}/assets/path/7.jpg "EDNS0 format"){:class="img-responsive"}
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/6.png">
+</p>
 
 &nbsp;
 ### DoT (DNS over TLS)
@@ -111,7 +122,10 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 
 - DNS message will then follow TLS format
 
-![DOT]({{site.baseurl}}/assets/path/8.jpg "DOT"){:class="img-responsive"}
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/7.png">
+</p>
+
 
 &nbsp;
 ### DoH (DNS over HTTPs)
@@ -124,7 +138,9 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 
 - Query either with HTTP GET/POST
 
-![DOH]({{site.baseurl}}/assets/path/9.jpg "DOH"){:class="img-responsive"}
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/8.png">
+</p>
 
 &nbsp;
 #### DoT vs DoH, and their common drawbacks
@@ -167,7 +183,9 @@ One famous use case of EDNS is called DNSSEC
 
 > RFC 5011, 6840, 4033, 4044 and many other DNSSEC specifications/clarifications (internet standard, proposed standards)
 
-![DNSSEC]({{site.baseurl}}/assets/path/10.jpg "DNSSEC"){:class="img-responsive"}
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/10.png">
+</p>
 
 &nbsp;
 ### DNSSEC & DoT/DoH & TLS1.3
@@ -227,7 +245,9 @@ One famous use case of EDNS is called DNSSEC
 
 ## Spotify uses DNS for song lookup (not cached)
 
-![Spotify1]({{site.baseurl}}/assets/path/11.jpg "Spotify1"){:class="img-responsive"}
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/11.png">
+</p>
 
 Dns query: txt record of key. And txt record contains information of the server that save the song.
 
@@ -238,7 +258,9 @@ Dns query: txt record of key. And txt record contains information of the server 
 
 Because widespread adoption of DNS infrastructure
 
-![Spotify2]({{site.baseurl}}/assets/path/12.jpg "Spotify2"){:class="img-responsive"}
+<p align="center">
+  <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/12.png">
+</p>
 
 &nbsp;
 # Part4: implementations
@@ -289,4 +311,5 @@ Because widespread adoption of DNS infrastructure
 &nbsp;
 Thank for the support from Junyi and my family.
 
-powered by [Jekyll](http://jekyllrb.com). Markdown is used
+
+#### powered by [Jekyll](http://jekyllrb.com). Markdown is used
