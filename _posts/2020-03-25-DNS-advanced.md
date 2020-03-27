@@ -309,7 +309,7 @@ Because widespread adoption of DNS infrastructure
     - var/run/resolv.conf (alias /etc/resolv.conf) – DNS configuration
     
 &nbsp;
-Thank for the support from Junyi and my family.
-
-
+&nbsp;
+&nbsp;
+#### Thank for the support from Junyi and my family.
 #### powered by [Jekyll](http://jekyllrb.com). Markdown is used
