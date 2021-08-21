@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "Advnaced DNS learning notes"
-date: 2020-03-25
+title: Advnaced DNS learning notes
+date: {}
+published: true
 ---
 
 # RFC guidance
-### Rfc background
+## 0. Rfc background
 IETF: Internet Engineering Task Force - a group, want to “make the Internet work better”
 
 |RFC (request for comments) category ||
@@ -17,22 +18,22 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 |Historical| |
 
 &nbsp;
-# part1: basic concepts - standards
+# PART I: basic concepts - standards
 > RFC1034/1035: internet standards
 
-- Domain Namespace
+1. Domain Namespace
 
 <p align="center">
   <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/1.png">
 </p>
 
-- DNS query flow
+2. DNS query flow
 
 <p align="center">
   <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/2.png">
 </p>
 
-- Resource record (RR), many categories
+3. Resource record (RR), many categories
 
   -A
   
@@ -55,7 +56,7 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 </p>
 
 &nbsp;
-### DNS query
+### 4. DNS query
 
 <p align="center">
   <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/4.png">
@@ -63,7 +64,7 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 
 
 &nbsp;
-### TCP or UDP?
+### 5. TCP or UDP?
 
 - Indicated by the TC flag
 
@@ -74,7 +75,7 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
   - indicate the message was truncated due to its length being longer than the maximum limit.
   
 &nbsp;
-### EDNS(0) – extension mechanism for DNS
+### 6. EDNS(0) – extension mechanism for DNS
 
 >RFC6891: internet standards
 
@@ -86,7 +87,7 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
   <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/5.png">
 </p>
 
-### EDNS(0) detail
+### 7. EDNS(0) detail
 
 - Add to additional information section, for backward capability
 
@@ -107,7 +108,7 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 </p>
 
 &nbsp;
-### DoT (DNS over TLS)
+### 8. DoT (DNS over TLS)
 
 > RFC7858, 8310: proposed standards
 
@@ -129,7 +130,7 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 
 
 &nbsp;
-### DoH (DNS over HTTPs)
+### 9. DoH (DNS over HTTPs)
 
 > RFC 8484: proposed standards
 
@@ -144,7 +145,7 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 </p>
 
 &nbsp;
-#### DoT vs DoH, and their common drawbacks
+#### 10. DoT vs DoH, and their common drawbacks
 
 - DoT will easily cause firewall block, because of it’s special port number
 
@@ -157,9 +158,9 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 - Increase RTT
 
 &nbsp;
-# part2: use cases & discussion on DNS
+# PART II: use cases & discussion on DNS
 
-### UDP or TCP?
+### 1. UDP or TCP?
 
 - For normal DNS, client SHOULD resend post with TCP if the response TC bit is set to 1.
   
@@ -172,7 +173,7 @@ IETF: Internet Engineering Task Force - a group, want to “make the Internet wo
 - For DoH & DoT, TCP is used. However, if server doesn’t support these 2 modes, query will fall back to unencrypted DNS.
 
 &nbsp;
-### Security considerations
+### 2. Security considerations
 One famous use case of EDNS is called DNSSEC
   
   - to prevent MITM, DNSSpoof, cache poisoning
@@ -180,7 +181,7 @@ One famous use case of EDNS is called DNSSEC
   - Basically, resolver have signature of server’s zone records to ensure integrity
 
 &nbsp;
-### DNSSEC
+### 3. DNSSEC
 
 > RFC 5011, 6840, 4033, 4044 and many other DNSSEC specifications/clarifications (internet standard, proposed standards)
 
@@ -189,7 +190,7 @@ One famous use case of EDNS is called DNSSEC
 </p>
 
 &nbsp;
-### DNSSEC & DoT/DoH & TLS1.3
+### 4. DNSSEC & DoT/DoH & TLS1.3
 
 - DNSSEC & DoT/DoH: complementary and both ensure security. • DNSSEC: authentivity & integrity, not confidentiality
 
@@ -204,7 +205,7 @@ One famous use case of EDNS is called DNSSEC
 > Experimental: Encrypted Server Name Indication for TLS 1.3; Already supported by Firefox Nightly
 
 &nbsp;
-### DANE (DNS-based Authentication of Named Entities)
+### 5. DANE (DNS-based Authentication of Named Entities)
 
 > Rfc 6698 proposed standards
 
@@ -217,7 +218,7 @@ One famous use case of EDNS is called DNSSEC
 - use DNSSEC to verify
 
 &nbsp;
-### EDNS other use case
+### 6. EDNS other use case
 
 > proposed standards
 
@@ -240,11 +241,11 @@ One famous use case of EDNS is called DNSSEC
   - Indicate sender’s geographic locations
 
 &nbsp;
-# Part3: other fun industry use case
+# PART III: other fun industry use case
 
 `DNS is just for service discovery`
 
-## Spotify uses DNS for song lookup (not cached)
+### 1. Spotify uses DNS for song lookup (not cached)
 
 <p align="center">
   <img width="460" height="300" src="{{site.baseurl}}/assets/2020-03-25/11.png">
@@ -255,7 +256,7 @@ Dns query: txt record of key. And txt record contains information of the server 
 > spotify: https://labs.spotify.com/2017/03/31/spotifys-lovehate-relationship-with-dns/
 
 &nbsp;
-## Microservice discovery
+### 2. Microservice discovery
 
 Because widespread adoption of DNS infrastructure
 
@@ -264,9 +265,9 @@ Because widespread adoption of DNS infrastructure
 </p>
 
 &nbsp;
-# Part4: implementations
+# PART IV: implementations
 
-## Unix environment
+### 1. Unix environment
 
 - Divison1: Linux, a free unix-like operating system
   
@@ -289,7 +290,7 @@ Because widespread adoption of DNS infrastructure
   - FreeBSD: one of BSD operating systems. a descendant of 4.4 BSD release
 
 &nbsp;
-## DNSSEC, DoT and DoH support
+### 2. DNSSEC, DoT and DoH support
 
 -  DNS service provider
   
@@ -309,8 +310,6 @@ Because widespread adoption of DNS infrastructure
    
     - var/run/resolv.conf (alias /etc/resolv.conf) – DNS configuration
     
-&nbsp;
-&nbsp;
 &nbsp;
 #### Thank for the support from Junyi and my family.
 #### powered by [Jekyll](http://jekyllrb.com). Markdown is used
